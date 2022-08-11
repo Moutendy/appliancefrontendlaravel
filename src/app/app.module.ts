@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './views/layout/layout.module';
 import { DashbordComponent } from './views/pages/dashbord/dashbord.component';
+import { AuthComponent } from './views/pages/auth/auth.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashbordComponent,
+    AuthComponent,
 
   ],
   imports: [

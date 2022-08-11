@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './views/layout/base/base.component';
 
 const routes: Routes = [
+  { path: 'auth', loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule) },
   {
     path:'',
     component: BaseComponent,

@@ -9,6 +9,7 @@ import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/route
 export class BaseComponent implements OnInit {
 
   isLoading: boolean = false;
+  pokemonList=['bulbizarre','salamèche','carapuce'];
   constructor(private router : Router) {
     this.router.events.forEach((event) => {
       if (event instanceof RouteConfigLoadStart) {
@@ -20,6 +21,7 @@ export class BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.table(this.pokemonList);
   }
 
 }
