@@ -3,12 +3,19 @@
 
   <form
     [formGroup]="profileForm"
-    (ngSubmit)="login()"
+    (ngSubmit)="register()"
     action="verification.php"
     method="POST"
   >
     <h1>Connexion</h1>
-
+    <label><b>Nom</b></label>
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Entrer le nom d'utilisateur"
+      name="username"
+      required
+    />
     <label><b>Adresse Email</b></label>
     <input
       formControlName="email"
@@ -23,11 +30,20 @@
       formControlName="password"
       type="password"
       placeholder="Entrer le mot de passe"
-      name="password"
+
+      required
+    />
+
+    <label><b>Confirmation Mot de passe</b></label>
+    <input
+      formControlName="password_confirmation"
+      type="password"
+      placeholder="Entrer le mot de passe"
+
       required
     />
 
     <input type="submit" id="submit" value="LOGIN" />
   </form>
-  <a (click)="register()"><label class="label">Register</label></a>
+  <a (click)="login()"><label class="label">auth</label></a>
 </div>

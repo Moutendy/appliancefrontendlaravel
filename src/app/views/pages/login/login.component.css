@@ -4,7 +4,7 @@
 #container1{
   width:400px;
   margin:0 auto;
-  margin-top:10%;
+  margin-top:1%;
 }
 /* Bordered form */
 form {
@@ -19,9 +19,14 @@ form {
   margin: 0 auto;
   padding-bottom: 10px;
 }
+h1
+{
+  font-size: small;
 
+  color: cornflowerblue;
+}
 /* Full-width inputs */
-input[type=email], input[type=password] {
+input[type=email], input[type=password] , input[type=text]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

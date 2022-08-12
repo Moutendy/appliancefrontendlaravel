@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './views/layout/layout.module';
 import { DashbordComponent } from './views/pages/dashbord/dashbord.component';
 import { AuthComponent } from './views/pages/auth/auth.component';
+import { LoginComponent } from './views/pages/login/login.component';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { AuthComponent } from './views/pages/auth/auth.component';
     AppComponent,
     DashbordComponent,
     AuthComponent,
+    LoginComponent,
+
 
   ],
   imports: [

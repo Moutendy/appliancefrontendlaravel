@@ -4,6 +4,9 @@ import { BaseComponent } from './views/layout/base/base.component';
 
 const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule) },
+
+ { path: 'login', loadChildren: () => import('./views/pages/login/login.module').then(m => m.LoginModule) },
+
   {
     path:'',
     component: BaseComponent,
