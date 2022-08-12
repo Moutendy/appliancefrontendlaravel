@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
+import { LocalService } from 'src/app/core/shared/services/local.service';
 
 @Component({
   selector: 'app-base',
@@ -9,8 +10,9 @@ import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/route
 export class BaseComponent implements OnInit {
 
   isLoading: boolean = false;
-  pokemonList=['bulbizarre','salamèche','carapuce'];
-  constructor(private router : Router) {
+
+  constructor(private router : Router,
+    private local:LocalService) {
     this.router.events.forEach((event) => {
       if (event instanceof RouteConfigLoadStart) {
         this.isLoading = true;
@@ -21,7 +23,8 @@ export class BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.table(this.pokemonList);
+    console.log(this.local.getData('token'));
+
   }
 
 }

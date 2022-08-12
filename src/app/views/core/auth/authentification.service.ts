@@ -22,12 +22,33 @@ export class AuthentificationService {
 ) { }
 
 
-login(username: string, password: string) {
+login(email: string, password: string) {
   let body = new URLSearchParams();
-  body.set('username', username);
+  body.set('email', email);
+  body.set('password', password);
+console.log(email);
+  return this.http.post(this.ApiUrl + 'login', body, this.httpOptions)
+}
+
+
+register(email: string, password: string,nom:string,password_confirmation:string) {
+  let body = new URLSearchParams();
+  body.set('nom', nom);
+  body.set('password_confirmation', password_confirmation);
+  body.set('email', email);
   body.set('password', password);
 
   return this.http.post(this.ApiUrl + 'login', body, this.httpOptions)
 }
 
+isAuthenticated(): boolean {
+  return localStorage.getItem('accessToken') != null;
+}
+
+getToken(){
+  return localStorage.getItem('token');
+}
+getName(){
+  return localStorage.getItem('name');
+}
 }
