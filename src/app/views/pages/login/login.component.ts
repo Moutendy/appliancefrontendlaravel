@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
+import { LocalService } from 'src/app/core/shared/services/local.service';
 import Swal from 'sweetalert2';
 import { AuthentificationService } from '../../core/auth/authentification.service';
 
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 user:any
   constructor(private auth: AuthentificationService,
     private routes: Router,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private local:LocalService) { }
   profileForm = this.fb.group({
     email: [''],
     password: [''],
@@ -23,16 +25,17 @@ user:any
 
   });
   ngOnInit(): void {
-    console.log('dsdd');
+   
 
   }
   register() {
-    console.log(this.profileForm.value);
-    this.auth.register(this.profileForm.value.email, this.profileForm.value.password, this.profileForm.value.name, this.profileForm.value.password_confirmation).pipe(take(1)).subscribe((data) => {
-      this.user=data;
-localStorage.setItem('token',this.user.token);
 
-localStorage.setItem('name',this.user.name);
+    this.auth.register(this.profileForm.value.email, this.profileForm.value.password, this.profileForm.value.name, this.profileForm.value.password_confirmation).pipe(take(1)).subscribe((data:any) => {
+      this.user=data;
+
+this.local.saveData('token',data.token);
+this.local.saveData('name',data.name);
+
 this.routes.navigate(['/']);
 
 

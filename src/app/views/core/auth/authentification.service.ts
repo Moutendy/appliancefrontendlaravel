@@ -42,7 +42,7 @@ register(email: string, password: string,nom:string,password_confirmation:string
 }
 
 isAuthenticated(): boolean {
-  return localStorage.getItem('accessToken') != null;
+  return localStorage.getItem('token') != null;
 }
 
 getToken(){

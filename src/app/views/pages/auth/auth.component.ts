@@ -29,7 +29,7 @@ export class AuthComponent implements OnInit {
  login()
  {
  
-  this.auth.login(this.profileForm.value.email,this.profileForm.value.password).pipe(take(1)).subscribe(( data :any)=>{
+this.auth.login(this.profileForm.value.email,this.profileForm.value.password).pipe(take(1)).subscribe(( data :any)=>{
 console.log(data.token);
 
 this.local.saveData('token',data.token);
